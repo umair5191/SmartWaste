@@ -50,3 +50,7 @@ db.connect((err) => {
     }
 });
 global.db = db; // Making the database accessible for all routes
+
+// Loading the route handlers for landing page
+const landingRoutes = require("./routes/landing");
+app.use('/', landingRoutes);
