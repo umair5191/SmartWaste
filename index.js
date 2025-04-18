@@ -54,3 +54,7 @@ global.db = db; // Making the database accessible for all routes
 // Loading the route handlers for landing page
 const landingRoutes = require("./routes/landing");
 app.use('/', landingRoutes);
+
+// Loading the route handlers for logging in and out and registering users
+const userRoutes = require("./routes/users");
+app.use('/users', userRoutes);
