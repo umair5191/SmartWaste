@@ -66,3 +66,7 @@ app.use('/leaderboard', leaderboardRoutes);
 // Loading the route handlers for impact page
 const impactRoutes = require("./routes/impact");
 app.use('/impact', impactRoutes);
+
+// Loading the route handlers for locator page
+const locatorRoutes = require("./routes/locator");
+app.use('/locator', locatorRoutes);
