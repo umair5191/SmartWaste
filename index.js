@@ -70,3 +70,12 @@ app.use('/impact', impactRoutes);
 // Loading the route handlers for locator page
 const locatorRoutes = require("./routes/locator");
 app.use('/locator', locatorRoutes);
+
+// Loading the route handlers for forum page
+const forumRoutes = require("./routes/forum");
+app.use('/forum', forumRoutes);
+
+// Starting the server on port 8000
+app.listen(port, () => {
+    console.log('Node app listening on port 8000!');
+});
