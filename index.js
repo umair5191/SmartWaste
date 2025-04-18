@@ -58,3 +58,7 @@ app.use('/', landingRoutes);
 // Loading the route handlers for logging in and out and registering users
 const userRoutes = require("./routes/users");
 app.use('/users', userRoutes);
+
+// Loading the route handlers for leaderboard page
+const leaderboardRoutes = require("./routes/leaderboard");
+app.use('/leaderboard', leaderboardRoutes);
