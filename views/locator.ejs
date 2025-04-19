@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nearby Recycling Centres</title>
+  <link rel="stylesheet"  type="text/css" href="/locator.css" />
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE7WmjBj1Oxig5qPSp60EOEAyYBpMOKRM&libraries=places"></script> <!-- Linking API key -->
+</head>
+<body>
+  <header>
+    <h1>SmartWaste</h1>
+    <nav class="navbar"> 
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/impact">Impact</a></li>
+            <li><a href="/locator">Locator</a></li>
+            <li><a href="/forum">Forum</a></li>
+            <li><a href="/leaderboard">Leaderboard</a></li>
+            <li><a href="/users/logout">Logout</a></li>
+        </ul>
+    </nav>
+  </header>
+  <!-- Entry box for location -->
+  <input id="searchBox" type="text" placeholder="Enter a location" />
+  <!-- Container to hold map -->
+  <div id="map"></div>
+  <script src="/locatorMap.js"></script> <!-- Linking the js file for the map -->
+</body>
+</html>
