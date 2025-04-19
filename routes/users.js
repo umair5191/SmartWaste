@@ -59,4 +59,15 @@ router.post('/registered', [check('email').isEmail().withMessage('Invalid email.
     }
 })
 
+// Handling route to display logout page
+router.get('/logout', function (req, res, next) {
+    res.render('logout.ejs', {username: req.session.userId}); // Informing user that they have logged out                                                       
+})
 
+// Handling route to confirm logout
+router.post('/loggedout', function (req, res, next) {
+    req.session.destroy(); // Destroying the session
+    res.render('index.ejs', { error: null }); // Redirecting user to the login page
+})
+
+module.exports = router;
