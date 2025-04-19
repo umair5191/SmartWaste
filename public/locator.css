@@ -1,0 +1,62 @@
+body {
+    background: url(https://cdn.wallpapersafari.com/82/54/P8p5re.jpg);
+}
+
+h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    font-size: 4vw;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+#searchBox {
+    width: 400px;
+    height: 30px;
+    margin-bottom: 80px;
+    margin-top: 150px;
+    padding: 10px;
+}
+
+nav {
+    position: fixed; /* Ensuring navigation bar stays in the top left corner */
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
