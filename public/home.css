@@ -1,0 +1,102 @@
+body {
+    background: url(https://cdn.wallpapersafari.com/82/54/P8p5re.jpg);
+}
+
+h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    font-size: 4vw;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
+}
+
+h2, p {
+    font-size: 2vw;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+p {
+    font-size: 1.5vw;
+}
+
+div {
+    background: rgba(255, 255, 255, 0.65); /* Creating transparent background for text */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 200px auto; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    position: fixed; /* Ensuring navigation bar stays in the top left corner */
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Container for the layout of leaderboard page */
+.container1 {
+    display: flex;
+    background: rgba(0, 0, 0, 0);
+    margin: 100px auto;
+}
+
+/* Styling for the leaderboard standings */
+.leaderboard {
+    background: rgba(255, 255, 255, 0.65); /* Creating transparent background for text */
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    margin: 50px 5vw 50px auto; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Transparent Box for Score Update */
+.update {
+    background: rgba(255, 255, 255, 0.65);
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    margin: 50px auto 50px 5vw;
+    text-align: center;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.standings {
+    font-size: 1.25vw;
+}
