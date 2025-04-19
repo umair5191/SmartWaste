@@ -66,5 +66,13 @@ function recyclingCentreLocator(location) {
     });
 }
 
+// Creating function to clear previous markers from the map
+function clearMarkers() {
+    for (let i = 0; i < markersArray.length; i++) {
+        markersArray[i].setMap(null); // Removing the marker from the map
+    }
+    markersArray = []; // Emptying the array
+}
+
 // Initialising the map when the page loads
 window.onload = mapIntialisation;
