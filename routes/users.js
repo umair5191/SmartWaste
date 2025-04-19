@@ -30,4 +30,33 @@ router.post('/loggedin', function (req, res, next) {
     })
 })
 
+// Handling route to register an account
+// The following checks ensure that email, username and password are valid
+router.post('/registered', [check('email').isEmail().withMessage('Invalid email.'), check('password').isLength({ min: 10 }).withMessage('Invalid password, must be at least 10 characters.'), check('username').notEmpty().withMessage('Username must not be empty')], function (req, res, next) {
+    const errors = validationResult(req);  
+    if (!errors.isEmpty()) {
+        res.render('register.ejs', {errors: errors.array() });  // If there are errors, user is informed and prompted to try again
+    }
+    else {
+        const plainPassword = req.sanitize(req.body.password); // Sanitizing the password to prevent harmful attacks
+        bcrypt.hash(plainPassword, saltRounds, function(err, hashedPassword) { // Hashing the password
+            let sqlquery = "INSERT INTO users (username, email, hashedPassword) VALUES (?, ?, ?)";
+            
+            // Sanitizing the inputs to prevent harmful attacks
+            let email = req.sanitize(req.body.email);   
+            let username = req.sanitize(req.body.username);
+
+            // Excecuting SQL query
+            db.query(sqlquery, [username, email, hashedPassword], (err, result) => {
+                if (err) {
+                    next(err);
+                }
+                // Saving user session here, when registration is successful
+                req.session.userId = req.sanitize(req.body.username);
+                res.render('home.ejs', {username}); // If successful, user is welcomed to the home page
+            })                                                                           
+        })
+    }
+})
+
 
