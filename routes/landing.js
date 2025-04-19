@@ -12,5 +12,10 @@ router.get('/register', function (req, res, next) {
     res.render('register.ejs', { errors: [] });                                                               
 })
 
+// Handling route for home page
+router.get('/home', function (req, res, next) {
+    res.render('home.ejs', { username: req.session.userId });
+})
+
 // Exporting the router object so index.js can access it
 module.exports = router;
