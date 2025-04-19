@@ -1,0 +1,29 @@
+<!-- This is the home page where users are welcomed once logged in -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet"  type="text/css" href="/home.css" /> <!-- Linking to the CSS stylesheet -->
+</head>
+<body>
+  <nav class="navbar"> <!-- Adding a navigation bar -->
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/impact">Impact</a></li>
+      <li><a href="/locator">Locator</a></li>
+      <li><a href="/forum">Forum</a></li>
+      <li><a href="/leaderboard">Leaderboard</a></li>
+      <li><a href="/users/logout">Logout</a></li>
+    </ul>
+  </nav>
+  <h1>SmartWaste</h1>
+  <div>
+    <h2>Welcome <%= username %>!</h2>
+    <p>Your waste reduction journey begins here!</p>
+    <p>SmartWaste is a web application that is aimed at reducing the levels of material waste. Our purpose is to educate and inform users about the impact that their material waste has, as well providing tips and guidance on how to cut down on their waste production levels. Users can consolidate their learning through quizes, as well as share tips with one another through the forum and compare progress through the leaderboard. There is also a recyling centre locator that provides you with directions to your nearest recycling centre.</p>
+    <p>Get started by exploring the various features of the web application above.</p>  
+  </div>
+</body>
+</html>
