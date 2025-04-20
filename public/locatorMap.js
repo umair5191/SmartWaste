@@ -3,6 +3,8 @@ let searchBox; // Variable to store the search input
 let placesService; // Variable to hold the places service which is used to find locations
 let infoWindow; // Variable to store the info window which displays place information
 let markersArray = []; // Array to store markers for each each recycling centre
+let origin; // Variable to store the location entered by the user
+let directionsRenderer; // Variable to hold the directions renderer to display navigation
 
 // Function to initialize the map
 function mapIntialisation() {
@@ -17,10 +19,15 @@ function mapIntialisation() {
     infoWindow = new google.maps.InfoWindow(); // Creating an info window to display location info
     searchBox = new google.maps.places.SearchBox(document.getElementById("searchBox")); // Creating the search box
 
+    directionsRenderer = new google.maps.DirectionsRenderer(); // Initialising the directions renderer
+    directionsRenderer.setMap(map); // Linking the directions renderer to the map
+    directionsRenderer.setPanel(document.getElementById('directionsPanel')); // Creating the panel to display step by step directions
+
     // Adding a listener to see when location is selected
     searchBox.addListener("places_changed", function () {
         const places = searchBox.getPlaces(); // Getting the locations from the search box
         const place = places[0]; // Assigning the first search result
+        origin = place.geometry.location; // Storing the starting point for directions
 
         // Centering the map on user's chosen location
         map.setCenter(place.geometry.location);
@@ -60,6 +67,25 @@ function recyclingCentreLocator(location) {
                 google.maps.event.addListener(marker, "click", function () {
                     infoWindow.setContent(place.name + "<br>" + place.vicinity);
                     infoWindow.open(map, marker);
+
+                    // Creating a directions service object to provide navigation
+                    const directionsService = new google.maps.DirectionsService();
+
+                    // Setting up the directions request from origin to recycling centre
+                    const directionsRequest = {
+                        origin: origin, // User's chosen location is start point
+                        destination: place.geometry.location, // Recycling centre is end point
+                        travelMode: 'DRIVING' // Setting travel mode as driving
+                    };
+
+                    // Requesting directions from the Google API
+                    directionsService.route(directionsRequest, function (result, status) {
+                        if (status === 'OK') { // Checks if the directions request was successful
+                            directionsRenderer.setDirections(result); // Setting the route on the map
+                        } else {
+                            alert("Navigation failed because " + status); // // Alerting the user if navigation fails
+                        }
+                    });
                 });
             };
         }
