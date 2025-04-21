@@ -70,7 +70,7 @@ nav ul li a:hover {
 /* Styling for the impact box */
 .impact {
     flex: 0.55; 
-    height: 80%; 
+    height: 85%; 
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.65); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -96,18 +96,19 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    height: 45%; 
+    height: 55%; 
     text-align: center;
 }
 
-.tipsContent {
+.tipsContent, .quizContent {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5vw; /* Space between arrows and text */
+    gap: 1vw; /* Space between arrows and text */
+    white-space: pre-line; 
 }
 
-#previous, #next {
+#previous, #next, #previousQ, #nextQ {
     background-color: transparent;
     border: none;
     font-size: 2rem;
@@ -115,6 +116,10 @@ nav ul li a:hover {
     transition: transform 0.2s ease-in-out;
 }
 
-#previous:hover, #next:hover {
+#previous:hover, #next:hover, #previousQ:hover, #nextQ:hover {
     transform: scale(1.2);
+}
+
+#currentQ {
+    font-size:
 }
