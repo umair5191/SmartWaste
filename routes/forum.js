@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.post('/post', (req, res) => {
   const content = req.body.content;
   const username = req.session.userId; 
-  const date = new Date();
+  const date = new Date(); // Getting the current date and time
 
   // Inserting new post into the database
   db.query('INSERT INTO posts (username, content, date) VALUES (?, ?, ?)', [username, content, date], (err, result) => {
