@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     content TEXT NOT NULL,
-    date DATETIME NOT NULL
+    date DATETIME NOT NULL,
+    likes INT DEFAULT 0
 );
 
 # Creating the app user and granting priviliges
