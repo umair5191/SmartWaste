@@ -22,11 +22,15 @@
   <div>
     <h2>Forum</h2>
     <p>Share your achievements and tips by posting below!</p>
-    <p>Enter your post here: <input id="post" type="text" name="post"/></p>
-    <button>Post</button>
-    <p>ExampleUser17 on 07/03/2025 - "Just hit my goal of reducing plastic waste by 50% this month! Switched to reusable containers and it made a huge difference."</p>
-    <p>ExampleUser23 on 04/03/2025 - "I've been using the SmartWaste app for a week now and it's really helped me to be more conscious of my waste production. I've already reduced my waste by 20%!"</p>
-    <p>ExampleUser12 on 28/02/2025 - "I've been recycling paper and cardboard for the past month and I've already seen a huge difference in the amount of waste I produce. It's a small change but it's making a big impact!"</p>
+    <!-- Form to submit a new post -->
+    <form method="POST" action="/forum/post">
+        <textarea name="content" rows="4" cols="50" placeholder="Enter your post here..." required></textarea><br>
+        <button type="submit">Post</button>
+    </form>
+    <!-- Displaying existing posts -->
+    <% posts.forEach(post => { %>
+        <p><strong><%= post.username %></strong> on <%= post.date %> - "<%= post.content %>"</p>
+    <% }) %>
   </div>
 </body>
 </html>
