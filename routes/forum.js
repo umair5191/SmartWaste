@@ -24,8 +24,20 @@ router.post('/post', (req, res) => {
         next (err);
       }
       res.redirect('/forum'); // Refresh to show new post
-    }
-  );
+   });
 });
 
+// Handling route to like posts
+router.post('/like/:id', (req, res, next) => {
+    const postId = req.params.id;
+
+    // Updating the likes count in the database
+    db.query('UPDATE posts SET likes = likes + 1 WHERE id = ?', [postId], (err) => {
+      if (err) {
+        next(err);
+      }
+      res.redirect('/forum');
+    });
+});
+  
 module.exports = router;
