@@ -30,6 +30,10 @@
     <!-- Displaying existing posts -->
     <% posts.forEach(post => { %>
         <p><strong><%= post.username %></strong> on <%= post.date %> - "<%= post.content %>"</p>
+        <!-- Displaying like button and number of likes -->
+        <form action="/forum/like/<%= post.id %>" method="POST" style="display:inline;">
+            <button type="submit">❤️ Like (<%= post.likes %>)</button>
+        </form>
     <% }) %>
   </div>
 </body>
