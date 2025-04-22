@@ -1,0 +1,31 @@
+<!-- This is the page where users can logout -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Page</title>
+    <link rel="stylesheet"  type="text/css" href="/home.css" /> <!-- Linking to the CSS stylesheet -->
+</head>
+<body>
+  <nav class="navbar"> <!-- Adding a navigation bar -->
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/impact">Impact</a></li>
+      <li><a href="/locator">Locator</a></li>
+      <li><a href="/forum">Forum</a></li>
+      <li><a href="/leaderboard">Leaderboard</a></li>
+      <li><a href="/users/logout">Logout</a></li>
+    </ul>
+  </nav>
+  <h1>SmartWaste</h1>
+  <div>
+    <h2>Goodbye <%= username %>!</h2>
+    <p>Are you sure you want to logout?</p>
+    <p>Click the button below to confirm logging out.</p>
+    <form action="/users/loggedout" method="POST">
+      <button>Logout</button>
+    </form>
+  </div>
+</body>
+</html>
