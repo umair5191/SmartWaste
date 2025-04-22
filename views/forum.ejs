@@ -21,7 +21,7 @@
   <h1>SmartWaste</h1>
   <div>
     <h2>Forum</h2>
-    <p>Share your achievements and tips by posting below!</p>
+    <p>This is the forum where you can view other users' posts and like them if they are useful. Share your achievements and tips by posting below!</p>
     <!-- Form to submit a new post -->
     <form method="POST" action="/forum/post">
         <textarea name="content" rows="4" cols="50" placeholder="Enter your post here..." required></textarea><br>
@@ -32,7 +32,7 @@
         <p><strong><%= post.username %></strong> on <%= post.date %> - "<%= post.content %>"</p>
         <!-- Displaying like button and number of likes -->
         <form action="/forum/like/<%= post.id %>" method="POST" style="display:inline;">
-            <button type="submit">❤️ Like (<%= post.likes %>)</button>
+            <button type="submit">❤️ <%= post.likes %></button> <!-- Displaying heart with number of likes -->
         </form>
     <% }) %>
   </div>
