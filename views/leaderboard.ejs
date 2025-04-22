@@ -1,0 +1,45 @@
+<!-- This is the leaderboard page where users can see the current standings and update score -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard Page</title>
+    <link rel="stylesheet"  type="text/css" href="/home.css" /> <!-- Linking to the CSS stylesheet -->
+</head>
+<body>
+  <nav class="navbar"> <!-- Adding a navigation bar -->
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/impact">Impact</a></li>
+      <li><a href="/locator">Locator</a></li>
+      <li><a href="/forum">Forum</a></li>
+      <li><a href="/leaderboard">Leaderboard</a></li>
+      <li><a href="/users/logout">Logout</a></li>
+    </ul>
+  </nav>
+  <h1>SmartWaste</h1>
+
+  <div class = "container1">
+    <!-- Form for users to update their score -->
+    <div class="update">
+      <h2>Update Your Score</h2>
+      <p>Your score is currently <%= currentScore %></p>
+      <p>Use the form below to update your score: </p>
+      <form action="/leaderboard/update" method="POST">
+          <p>What type of item did you recycle?</p>
+          <select id="item" name="item" required>
+              <option value="plastic">Plastic</option>
+              <option value="paper">Paper</option>
+              <option value="glass">Glass</option>
+              <option value="metal">Metal</option>
+          </select>
+          <p>How many of these did you recycle?</p>
+          <input type="number" id="quantity" name="quantity" required>
+          <p></p>
+          <button type="submit">Update Score</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
