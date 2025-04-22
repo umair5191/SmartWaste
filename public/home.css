@@ -32,8 +32,6 @@ div {
     margin: 200px auto; 
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-height: 65vh;
-    overflow-y: auto; /* Prevents content from overflowing /*
 }
 
 nav {
@@ -101,4 +99,10 @@ nav ul li a:hover {
 
 .standings {
     font-size: 1.25vw;
+}
+
+/* Styling for the forum section */
+.forumContainer {
+    max-height: 65vh;
+    overflow-y: auto
 }
