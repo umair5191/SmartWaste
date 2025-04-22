@@ -40,6 +40,16 @@
           <button type="submit">Update Score</button>
       </form>
     </div>
+    <!-- Displaying the current leaderboard standings -->
+    <div class="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul>
+          <!-- Displaying the top ten scoring users -->
+          <% topTen.forEach((user, index) => { %>
+              <p class = standings><%= index + 1 %>. <%= user.username %> - <%= user.score %> points</p>
+          <% }) %>
+        </ul>
+    </div>
   </div>
 </body>
 </html>
