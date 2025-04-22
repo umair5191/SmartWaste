@@ -22,3 +22,35 @@ router.get('/', function (req, res, next) {
         })
     })
 })
+
+// Handling route to update user's score
+router.post('/update', function (req, res, next) {
+
+    // Awarding certain points for each type of waste
+    const awards = {
+        plastic: 10,
+        paper: 5,
+        glass: 15,
+        metal: 20,
+        eWaste: 25
+    };
+
+    const addition = awards[req.body.item] * req.body.quantity; // Calculating how many points to award
+    let sqlquery = "SELECT score FROM users where username = ?";
+    db.query(sqlquery, [req.session.userId], (err, result) => {
+        if (err) {
+            next(err);
+        }
+        let updatedScore = result[0].score + addition; // Calculating the new score
+        sqlquery = "UPDATE users SET score = ? WHERE username = ?";
+        db.query(sqlquery, [updatedScore, req.session.userId], (err, result) => {
+            if (err) {
+                next(err);
+            }
+            res.redirect('/leaderboard') // Refreshing the leaderboard page to show the updated score
+        })
+    })
+})
+
+// Exporting the router object so index.js can access it
+module.exports = router;
