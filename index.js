@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 // Setting up the express sanitizer
 app.use(expressSanitizer());
 
-// Setting up public folder (for css and statis js)
+// Setting up public folder (for css and static js)
 app.use(express.static('public'));
 
 // Creating a session
@@ -74,6 +74,12 @@ app.use('/locator', locatorRoutes);
 // Loading the route handlers for forum page
 const forumRoutes = require("./routes/forum");
 app.use('/forum', forumRoutes);
+
+// Error handling middleware 
+app.use(function(err, req, res, next) {
+    console.error(err.stack);  // Logging the error details
+    res.status(500).send("Something went wrong!");  // Sending error message to user
+});
 
 // Starting the server on port 8000
 app.listen(port, () => {
