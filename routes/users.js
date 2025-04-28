@@ -10,7 +10,7 @@ router.post('/loggedin', function (req, res, next) {
     let sqlquery = "SELECT hashedPassword FROM users where username = ?";
     db.query(sqlquery, [req.sanitize(req.body.username)], (err, result) => { // Sanitizing the username to prevent harmful attacks
         if (err){
-            next(err);
+            next(err); // Passing to error handler
         }
         if (result.length == 0) {
             return res.render('index.ejs', { error: "Invalid username or password. Please try again." }); // If username is not found, user is informed and prompted to try again
@@ -32,7 +32,9 @@ router.post('/loggedin', function (req, res, next) {
 
 // Handling route to register an account
 // The following checks ensure that email, username and password are valid
-router.post('/registered', [check('email').isEmail().withMessage('Invalid email.'), check('password').isLength({ min: 10 }).withMessage('Invalid password, must be at least 10 characters.'), check('username').notEmpty().withMessage('Username must not be empty')], function (req, res, next) {
+router.post('/registered', [check('email').isEmail().withMessage('Invalid email.'), 
+    check('password').isLength({ min: 10 }).withMessage('Invalid password, must be at least 10 characters.'), 
+    check('username').notEmpty().withMessage('Username must not be empty')], function (req, res, next) {
     const errors = validationResult(req);  
     if (!errors.isEmpty()) {
         res.render('register.ejs', {errors: errors.array() });  // If there are errors, user is informed and prompted to try again
