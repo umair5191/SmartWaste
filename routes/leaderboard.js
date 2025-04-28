@@ -32,7 +32,10 @@ router.post('/update', function (req, res, next) {
         paper: 5,
         glass: 15,
         metal: 20,
-        eWaste: 25
+        eWaste: 25,
+        cardboard: 10,
+        textiles: 20,
+        timber: 15
     };
 
     const addition = awards[req.body.item] * req.body.quantity; // Calculating how many points to award
